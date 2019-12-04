@@ -2,11 +2,9 @@ package Util;
 
 import model.User;
 import org.hibernate.SessionFactory;
-
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
-
-import javax.imageio.spi.ServiceRegistry;
+import org.hibernate.service.ServiceRegistry;
 
 public class DBHelper {
     private static SessionFactory sf;
@@ -21,7 +19,7 @@ public class DBHelper {
     private static SessionFactory createSessionFactory() {
         Configuration conf = getMySqlConf();
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
-        builder.applySetting(conf.getProperties());
+        builder.applySettings(conf.getProperties());
         ServiceRegistry serviceRegistry = builder.build();
         return conf.buildSessionFactory(serviceRegistry);
     }
