@@ -46,19 +46,20 @@ public class UserDao {
             return false;
         }
     }
-    /*
-    public void createTable() throws SQLException {
-        Statement stmt = connection.createStatement();
-        stmt.execute("create table if not exists bank_client (id bigint auto_increment, name varchar(256), password varchar(256), money bigint, primary key (id))");
-        stmt.close();
 
-        create table if not exists users (id bigint auto_increment, first_name varchar(256), last_name varchar(256), phone_number bigint, primary key (id))
+    public void createTable() {
+        try (Statement stmt = connection.createStatement()) {
+            stmt.execute("create table if not exists users (id bigint auto_increment, first_name varchar(256), last_name varchar(256), phone_number bigint, primary key (id))");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void dropTable() throws SQLException {
-        Statement stmt = connection.createStatement();
-        stmt.executeUpdate("DROP TABLE IF EXISTS bank_client");
-        stmt.close();
+    public void dropTable() {
+        try (Statement stmt = connection.createStatement()) {
+            stmt.executeUpdate("drop table if exists user");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-    */
 }

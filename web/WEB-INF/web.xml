@@ -7,13 +7,22 @@
     <display-name>Testing (It's display name)</display-name>
 
     <servlet>
-        <servlet-name>Testing servlet</servlet-name>
+        <servlet-name>Add user servlet</servlet-name>
         <servlet-class>Servlets.AllUsersServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Testing servlet</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>Add user servlet</servlet-name>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>All user servlet</servlet-name>
+        <servlet-class>Servlets.AllUsersServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>All user servlet</servlet-name>
+        <url-pattern>/all</url-pattern>
+    </servlet-mapping>
 </web-app>

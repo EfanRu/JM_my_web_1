@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>Test Servlet</title>
+    <title>All users</title>
   </head>
   <body>
-  It's your Test servlet in page test! Welcome!
+  It's all users:
   </body>
 </html>
