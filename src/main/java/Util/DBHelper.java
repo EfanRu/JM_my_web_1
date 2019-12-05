@@ -2,9 +2,11 @@ package Util;
 
 import model.User;
 import org.hibernate.SessionFactory;
+
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
+
 
 public class DBHelper {
     private static SessionFactory sf;
