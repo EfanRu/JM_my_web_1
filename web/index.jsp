@@ -14,12 +14,15 @@
   It's your project! Welcome!
   </body>
 
-  <form action="/all" method="post">
-    <input type="submit" name="Show all user">
+  <form action="/all" method="GET">
+    <input type="submit" value="Show all user">
   </form>
 
-  <form action="/add" method="post">
+  <form action="/add" method="GET">
     <input type="submit" value="Add user">
   </form>
+
+  <button onclick="location.href='/all'">All users</button>
+  <button onclick="location.href='/add'">Add user</button>
 
 </html>
