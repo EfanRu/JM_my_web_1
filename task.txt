@@ -5,6 +5,7 @@ Task:
 	4) Конфигурация сервлетов через аннотации.
 Links:
 	JSP: http://java-course.ru/student/book1/jsp/
+	JDBC: https://habr.com/ru/post/101342/
 Order:
     + 1) Ну я бы сделал так , подключить томкат
     + 2) Создавть просто сервлет посмотреть все ли ок

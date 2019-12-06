@@ -13,7 +13,7 @@ public class AddUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("It's all OK and working AllUsersServlet!");
         resp.setStatus(200);
-//        req.getRequestDispatcher("/AddUser.jsp").forward(req, resp);
+        req.getRequestDispatcher("/AddUser.jsp").forward(req, resp);
     }
 
     @Override
