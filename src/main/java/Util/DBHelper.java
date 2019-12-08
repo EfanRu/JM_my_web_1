@@ -31,7 +31,7 @@ public class DBHelper {
 
         conf.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         conf.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-        conf.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/test");
+        conf.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3307/test");
         conf.setProperty("hibernate.connection.username", "root");
         conf.setProperty("hibernate.connection.password", "root");
         conf.setProperty("hibernate.show_sql", "true");

@@ -32,12 +32,11 @@ public class UserDao {
     }
 
     public boolean addUser(User u) {
-        String sql = "insert into users values(?, ?, ?, ?)";
+        String sql = "insert into users values(null, ?, ?, ?)";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)){
-            pstmt.setLong(1, u.getId());
-            pstmt.setString(2, u.getFirstName());
-            pstmt.setString(3, u.getLastName());
-            pstmt.setLong(4, u.getPhoneNumber());
+            pstmt.setString(1, u.getFirstName());
+            pstmt.setString(2, u.getLastName());
+            pstmt.setLong(3, u.getPhoneNumber());
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {

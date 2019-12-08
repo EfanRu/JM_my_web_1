@@ -13,40 +13,40 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserService {
-
     public UserService() {}
 
     public List<User> getAllUsers() {
-        return new UserDao(getMysqlConnection()).getAllUsers();
+        return getUserDao().getAllUsers();
     }
 
     public boolean addUser(User u) {
-        return new UserDao(getMysqlConnection()).addUser(u);
+        return getUserDao().addUser(u);
     }
 
     private static Connection getMysqlConnection() {
         try {
 
-            InitialContext initContext= new InitialContext();
-            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/test");
-            Connection conn = ds.getConnection();
-            return conn;
-//            DriverManager.registerDriver(new Driver());
-//            StringBuilder url = new StringBuilder();
-//            url.append("jdbc:mysql://")
-//                .append("localhost:")
-//                .append("3307/")
-//                .append("test?")
-//                .append("user=root&")
-//                .append("password=root");
-//            return DriverManager.getConnection(url.toString());
-        } catch (SQLException | NamingException e) {
+//            InitialContext initContext= new InitialContext();
+//            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/test");
+//            Connection conn = ds.getConnection();
+//            return conn;
+            DriverManager.registerDriver(new Driver());
+            StringBuilder url = new StringBuilder();
+            url.append("jdbc:mysql://")
+                .append("localhost:")
+                .append("3307/")
+                .append("test?")
+                .append("user=root&")
+                .append("password=root");
+            return DriverManager.getConnection(url.toString());
+//        } catch (SQLException | NamingException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             throw new IllegalStateException();
         }
     }
 
-    private static UserDao getBankClientDAO() {
+    private static UserDao getUserDao() {
         return new UserDao(getMysqlConnection());
     }
 }

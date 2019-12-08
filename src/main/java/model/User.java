@@ -22,7 +22,6 @@ public class User {
     @Column(name="phone_numbers")
     private Long phoneNumber;
 
-
     public User() {}
 
     public User(Long id, String firstName, String lastName, Long phoneNumber) {
@@ -30,6 +29,13 @@ public class User {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.id = id;
+    }
+
+    public User(String firstName, String lastName, Long phoneNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.id = null;
     }
 
     public String getFirstName() {

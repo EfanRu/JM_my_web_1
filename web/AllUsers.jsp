@@ -1,4 +1,6 @@
-<%--
+<%@ page import="model.User" %>
+<%@ page import="java.util.List" %>
+<%@ page import="Service.UserService" %><%--
   Created by IntelliJ IDEA.
   User: slava
   Date: 05.12.2019
@@ -11,6 +13,24 @@
     <title>All users</title>
   </head>
   <body>
-  It's all users:
+  <%
+      List<User> list = new UserService().getAllUsers();
+      if (list == null) {
+        response.setStatus(403);
+  %>
+    In data base no one user.
+  <%
+      } else {
+        response.setStatus(200);
+  %>
+      All users is:<br>
+  <%
+    for (User u : list) {
+  %>
+  User id = <%=u.getId()%>, first name = <%=u.getFirstName()%>, last name = <%=u.getLastName()%>, phone number = <%=u.getPhoneNumber()%> <br>
+  <%
+        }
+      }
+  %>
   </body>
 </html>
