@@ -11,7 +11,7 @@
     <title>Project</title>
   </head>
   <body>
-  It's your project! Welcome!
+  It's your project! Welcome!<br>
   </body>
 
   <form action="/all" method="GET">
@@ -22,7 +22,11 @@
     <input type="submit" value="Add user">
   </form>
 
-  <button onclick="location.href='/all'">All users</button>
-  <button onclick="location.href='/add'">Add user</button>
+  <form action="/edit" method="GET">
+    <input type="submit" value="Edit user">
+  </form>
 
+  <form action="/delete" method="GET">
+    <input type="submit" value="Delete user">
+  </form>
 </html>

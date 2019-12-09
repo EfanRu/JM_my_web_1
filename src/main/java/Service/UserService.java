@@ -1,12 +1,8 @@
 package Service;
 
 import DAO.UserDao;
-import com.mysql.jdbc.Driver;
+import com.mysql.cj.jdbc.Driver;
 import model.User;
-
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -23,23 +19,26 @@ public class UserService {
         return getUserDao().addUser(u);
     }
 
+    public boolean delUser(String id) {
+        return getUserDao().delUser(id);
+    }
+
+    public boolean updateUser(String id, String firstName, String lastName, String phoneNumber) {
+        return getUserDao().updateUser(id, firstName, lastName, phoneNumber);
+    }
+
     private static Connection getMysqlConnection() {
         try {
-
-//            InitialContext initContext= new InitialContext();
-//            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/test");
-//            Connection conn = ds.getConnection();
-//            return conn;
             DriverManager.registerDriver(new Driver());
             StringBuilder url = new StringBuilder();
             url.append("jdbc:mysql://")
                 .append("localhost:")
-                .append("3307/")
+                .append("3306/")
                 .append("test?")
                 .append("user=root&")
-                .append("password=root");
+                .append("password=root&")
+                .append("serverTimezone=UTC");
             return DriverManager.getConnection(url.toString());
-//        } catch (SQLException | NamingException e) {
         } catch (SQLException e) {
             e.printStackTrace();
             throw new IllegalStateException();

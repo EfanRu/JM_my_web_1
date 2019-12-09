@@ -1,7 +1,6 @@
 package Servlets;
 
 import Service.UserService;
-import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,27 +9,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/add")
-public class AddUserServlet extends HttpServlet {
+@WebServlet("/delete")
+public class DeleteUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println("It's all OK and working AllUsersServlet!");
         resp.setStatus(200);
-        req.getRequestDispatcher("/AddUser.jsp").forward(req, resp);
+        req.getRequestDispatcher("/DeleteUsers.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String firstName = req.getParameter("first name");
-        String lastName = req.getParameter("last name");
-        String phoneNum = req.getParameter("phone number");
+        String id = req.getParameter("id");
 
-        if (new UserService().addUser(new User(firstName, lastName, Long.parseLong(phoneNum)))) {
+        if (new UserService().delUser(id)) {
+            resp.getWriter().println("User id= " + id + " has been deleted");
             resp.setStatus(200);
-            resp.getWriter().println("User add successful");
         } else {
+            resp.getWriter().println("User " + id + "didn't deleted");
             resp.setStatus(403);
-            resp.getWriter().println("User don't added");
         }
     }
 }
