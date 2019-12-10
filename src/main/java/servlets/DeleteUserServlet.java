@@ -1,6 +1,6 @@
-package Servlets;
+package servlets;
 
-import Service.UserService;
+import service.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,22 +11,15 @@ import java.io.IOException;
 
 @WebServlet("/delete")
 public class DeleteUserServlet extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.setStatus(200);
-//        req.getRequestDispatcher("/DeleteUsers.jsp").forward(req, resp);
-//    }
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
 
-        if (new UserService().delUser(id)) {
+        if (new UserServiceImpl().delUser(id)) {
             resp.setStatus(200);
-            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
             resp.setStatus(403);
-            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }

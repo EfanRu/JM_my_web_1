@@ -1,13 +1,14 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="model.User" %>
-<%@ page import="Service.UserService" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: slava
-  Date: 05.12.2019
-  Time: 10:25
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="service.UserServiceImpl" %>
+<%@ page import="java.util.List" %>
+<%@ page import="dao.UserDaoImpl" %>
+<%@ page import="servlets.AllUsersServlet" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ taglib prefix="s" uri="http://java.sun.com/jsp/jstl/sql" %>--%>
+<%--<jsp:useBean id="UserDaoImpl" class="dao.UserDaoImpl" scope="page" />--%>
+
 <html>
   <head>
     <title>Project</title>
@@ -17,10 +18,34 @@
   <p>It's your project! Welcome!<br>
   </body>
 
-  <body>
+  <p>All users in database trying:<br>
+
+<%--    <form action="/all" method="get">--%>
+     <%-- <% List<User> list = (ArrayList) request.getAttribute("list"); %>
+            <table>
+          <tr>
+              <td>id/td>
+              <td>First name</td>
+              <td>Second name</td>
+              <td>Phone number</td>
+          </tr>
+
+          &lt;%&ndash;@elvariable id="users" type="java.util.List"&ndash;%&gt;
+          <c:forEach items="${users}" var="user">
+          <tr>
+              <td>${user.getId()}</td>
+              <td>${user.getFirstName}</td>
+              <td>${user.getLastName}</td>
+              <td>${user.getPhoneNumber}</td>
+          </tr>
+          </c:forEach>--%>
+<%--    </form>--%>
+
   <p>All users in database:<br>
+<%--
+
   <%
-      List<User> list = new UserService().getAllUsers();
+      List<User> list = new UserServiceImpl().getAllUsers();
       if (list == null) {
           response.setStatus(403);
   %>
@@ -38,7 +63,8 @@
           }
       }
   %>
-  </body>
+  </p>
+--%>
 
   <body>
   <p>Add user:<br>

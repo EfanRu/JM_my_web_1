@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import model.User;
 
@@ -6,10 +6,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDao {
+public class UserDaoImpl implements UserDao {
     private Connection connection;
 
-    public UserDao(Connection c) {
+    public UserDaoImpl(Connection c) {
         this.connection = c;
     }
 

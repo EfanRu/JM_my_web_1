@@ -1,6 +1,6 @@
-package Servlets;
+package servlets;
 
-import Service.UserService;
+import service.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,12 +24,11 @@ public class EditUserServlet extends HttpServlet {
         String lastName = req.getParameter("last name");
         String phoneNumber = req.getParameter("phone number");
 
-        if (new UserService().updateUser(id, firstName, lastName, phoneNumber)) {
+        if (new UserServiceImpl().updateUser(id, firstName, lastName, phoneNumber)) {
             resp.setStatus(200);
-            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
             resp.setStatus(403);
-            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }
