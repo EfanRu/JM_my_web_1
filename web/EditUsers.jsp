@@ -10,24 +10,32 @@
 <head>
     <title>Edit user menu</title>
 </head>
+
 <body>
-
-<form action="/edit" method="post">
-    <p><b>Id:</b><br>
-        <input type="text" name="id">
-    </p>
-    <p><b>First name:</b><br>
-        <input type="text" name="first name">
-    </p>
-    <p><b>Last name:</b>><br>
-        <input type="text" name="last name">
-    </p>
-    <p><b>Phone number</b><br>
-        <input type="text" name="phone number">
-    </p>
-    <input type="submit" value="Submit">
-</form>
-
-
+<p>Edit User<br>
+    <p>Write id of user for delete:<br>
+    <form action="/edit" method="post">
+        <p>Id:<br>
+            <input type="text" name="id">
+        </p>
+        <p>First name:<br>
+            <input type="text" name="first name">
+        </p>
+        <p>Last name:<br>
+            <input type="text" name="last name">
+        </p>
+        <p>Phone number<br>
+            <input type="text" name="phone number">
+        </p>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <p>Delete user<br>
+    <form action="/delete" method="post">
+        <p>Write id of user for delete:<br>
+            <input type="text" name="id">
+        </p>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>

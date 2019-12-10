@@ -12,12 +12,11 @@ import java.io.IOException;
 
 @WebServlet("/add")
 public class AddUserServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println("It's all OK and working AllUsersServlet!");
-        resp.setStatus(200);
-        req.getRequestDispatcher("/AddUser.jsp").forward(req, resp);
-    }
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        resp.setStatus(200);
+//        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+//    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,10 +26,10 @@ public class AddUserServlet extends HttpServlet {
 
         if (new UserService().addUser(new User(firstName, lastName, Long.parseLong(phoneNum)))) {
             resp.setStatus(200);
-            resp.getWriter().println("User add successful");
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
             resp.setStatus(403);
-            resp.getWriter().println("User don't added");
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
     }
 }

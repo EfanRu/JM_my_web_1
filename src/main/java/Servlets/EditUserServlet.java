@@ -26,10 +26,10 @@ public class EditUserServlet extends HttpServlet {
 
         if (new UserService().updateUser(id, firstName, lastName, phoneNumber)) {
             resp.setStatus(200);
-            resp.getWriter().println("User id = " + id + " has been updated");
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         } else {
             resp.setStatus(403);
-            resp.getWriter().println("User id = " + id + " didn't updated");
+            req.getRequestDispatcher("/index.jsp").forward(req, resp);
         }
     }
 }
