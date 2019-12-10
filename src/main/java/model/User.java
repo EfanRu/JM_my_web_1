@@ -6,20 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="users")
 public class User {
-    @Id
-    @Column(name="id")
     private Long id;
-
-    @Column(name="first_names")
     private String firstName;
-
-    @Column(name="last_names")
     private String lastName;
-
-    @Column(name="phone_numbers")
     private Long phoneNumber;
 
     public User() {}
