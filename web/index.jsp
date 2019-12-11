@@ -6,8 +6,6 @@
 <%@ page import="servlets.AllUsersServlet" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@ taglib prefix="s" uri="http://java.sun.com/jsp/jstl/sql" %>--%>
-<%--<jsp:useBean id="UserDaoImpl" class="dao.UserDaoImpl" scope="page" />--%>
 
 <html>
   <head>
@@ -18,53 +16,26 @@
   <p>It's your project! Welcome!<br>
   </body>
 
-  <p>All users in database trying:<br>
-
-<%--    <form action="/all" method="get">--%>
-     <%-- <% List<User> list = (ArrayList) request.getAttribute("list"); %>
-            <table>
-          <tr>
-              <td>id/td>
-              <td>First name</td>
-              <td>Second name</td>
-              <td>Phone number</td>
-          </tr>
-
-          &lt;%&ndash;@elvariable id="users" type="java.util.List"&ndash;%&gt;
-          <c:forEach items="${users}" var="user">
-          <tr>
-              <td>${user.getId()}</td>
-              <td>${user.getFirstName}</td>
-              <td>${user.getLastName}</td>
-              <td>${user.getPhoneNumber}</td>
-          </tr>
-          </c:forEach>--%>
-<%--    </form>--%>
-
   <p>All users in database:<br>
-<%--
 
-  <%
-      List<User> list = new UserServiceImpl().getAllUsers();
-      if (list == null) {
-          response.setStatus(403);
-  %>
-  In data base no one user.
-  <%
-  } else {
-      response.setStatus(200);
-  %>
-  All users is:<br>
-  <%
-      for (User u : list) {
-  %>
-  User id = <%=u.getId()%>, first name = <%=u.getFirstName()%>, last name = <%=u.getLastName()%>, phone number = <%=u.getPhoneNumber()%> <br>
-  <%
-          }
-      }
-  %>
-  </p>
---%>
+      <form action="/all" method="get">
+          <table>
+              <tr>
+                  <td>id</td>
+                  <td>First name</td>
+                  <td>Second name</td>
+                  <td>Phone number</td>
+              </tr>
+                  <c:forEach var="user" items="${listUser}">
+              <tr>
+                      <td>${user.getId()}</td>
+                      <td>${user.getFirstName()}</td>
+                      <td>${user.getLastName()}</td>
+                      <td>${user.getPhoneNumber()}</td>
+              </tr>
+                  </c:forEach>
+          </table>
+      </form>
 
   <body>
   <p>Add user:<br>

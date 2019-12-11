@@ -16,8 +16,8 @@ public class AllUsersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> list = new UserServiceImpl().getAllUsers();
-        req.setAttribute("list", list);
+        req.setAttribute("listUser", list);
         resp.setStatus(200);
-        req.getRequestDispatcher("/AllUsers.jsp").forward(req, resp);
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 }
