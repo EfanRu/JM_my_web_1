@@ -1,31 +1,32 @@
 package service;
 
+import dao.UserDao;
 import dao.UserDaoImpl;
 import model.User;
+import util.DBHelper;
+
 import java.util.List;
 
 import static util.DBHelper.getMysqlConnection;
 
 public class UserServiceImpl implements UserService {
+    private UserDao userDao = new UserDaoImpl(DBHelper.getMysqlConnection());
+
     public UserServiceImpl() {}
 
     public List<User> getAllUsers() {
-        return UserService.getUserDao().getAllUsers();
+        return userDao.getAllUsers();
     }
 
     public boolean addUser(User u) {
-        return UserService.getUserDao().addUser(u);
+        return userDao.addUser(u);
     }
 
     public boolean delUser(String id) {
-        return UserService.getUserDao().delUser(id);
+        return userDao.delUser(id);
     }
 
     public boolean updateUser(String id, String firstName, String lastName, String phoneNumber) {
-        return UserService.getUserDao().updateUser(id, firstName, lastName, phoneNumber);
+        return userDao.updateUser(id, firstName, lastName, phoneNumber);
     }
-
-//    private static UserDaoImpl getUserDao() {
-//        return new UserDaoImpl(getMysqlConnection());
-//    }
 }

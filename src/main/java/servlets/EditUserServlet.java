@@ -1,5 +1,6 @@
 package servlets;
 
+import service.UserService;
 import service.UserServiceImpl;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import java.io.IOException;
 
 @WebServlet("/edit")
 public class EditUserServlet extends HttpServlet {
+    private UserService userService = new UserServiceImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setStatus(200);
@@ -20,15 +23,15 @@ public class EditUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
-        String firstName = req.getParameter("first name");
-        String lastName = req.getParameter("last name");
-        String phoneNumber = req.getParameter("phone number");
+        String firstName = req.getParameter("firstName");
+        String lastName = req.getParameter("lastName");
+        String phoneNumber = req.getParameter("phoneNumber");
 
-        if (new UserServiceImpl().updateUser(id, firstName, lastName, phoneNumber)) {
+        if (userService.updateUser(id, firstName, lastName, phoneNumber)) {
             resp.setStatus(200);
         } else {
             resp.setStatus(403);
         }
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        doGet(req, resp);
     }
 }

@@ -41,13 +41,13 @@
   <p>Add user:<br>
       <form action="/add" method="post">
           <p>First name:<br>
-              <input type="text" name="first name">
+              <input type="text" name="firstName">
           </p>
           <p>Last name:<br>
-              <input type="text" name="last name">
+              <input type="text" name="lastName">
           </p>
           <p>Phone number<br>
-              <input type="text" name="phone number">
+              <input type="text" name="phoneNumber">
           </p>
           <input type="submit" value="Submit">
       </form>

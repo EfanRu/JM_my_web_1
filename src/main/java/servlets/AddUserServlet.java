@@ -1,5 +1,6 @@
 package servlets;
 
+import service.UserService;
 import service.UserServiceImpl;
 import model.User;
 
@@ -12,17 +13,24 @@ import java.io.IOException;
 
 @WebServlet("/add")
 public class AddUserServlet extends HttpServlet {
+    private UserService userService = new UserServiceImpl();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String firstName = req.getParameter("first name");
-        String lastName = req.getParameter("last name");
-        String phoneNum = req.getParameter("phone number");
+        String firstName = req.getParameter("firstName");
+        String lastName = req.getParameter("lastName");
+        String phoneNum = req.getParameter("phoneNumber");
 
-        if (new UserServiceImpl().addUser(new User(firstName, lastName, Long.parseLong(phoneNum)))) {
+        if (userService.addUser(new User(firstName, lastName, Long.parseLong(phoneNum)))) {
             resp.setStatus(200);
         } else {
             resp.setStatus(403);
         }
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        doGet(req, resp);
     }
 }

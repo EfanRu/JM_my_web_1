@@ -13,11 +13,31 @@ import java.sql.SQLException;
 
 
 public class DBHelper {
+    private static PropertyReader propertyReader = new PropertyReader();
+
     public static Connection getMysqlConnection() {
+        String host = propertyReader.getProperty("db.host");
+        String port = propertyReader.getProperty("db.port");
+        String name = propertyReader.getProperty("db.name");
+        String login = propertyReader.getProperty("db.login");
+        String password = propertyReader.getProperty("db.password");
+
         try {
             DriverManager.registerDriver(new Driver());
             StringBuilder url = new StringBuilder();
-            url.append("jdbc:mysql://")
+           /* url.append("jdbc:mysql://")
+                    .append(host)
+                    .append(":")
+                    .append(port)
+                    .append("/")
+                    .append(name)
+                    .append("?user=")
+                    .append(login)
+                    .append("&password=")
+                    .append(password)
+                    .append("&serverTimezone=UTC");*/
+
+                        url.append("jdbc:mysql://")
                     .append("localhost:")
                     .append("3306/")
                     .append("test?")

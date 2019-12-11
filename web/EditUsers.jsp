@@ -19,13 +19,13 @@
             <input type="text" name="id">
         </p>
         <p>First name:<br>
-            <input type="text" name="first name">
+            <input type="text" name="first_name">
         </p>
         <p>Last name:<br>
-            <input type="text" name="last name">
+            <input type="text" name="last_name">
         </p>
         <p>Phone number<br>
-            <input type="text" name="phone number">
+            <input type="text" name="phone_number">
         </p>
         <input type="submit" value="Submit">
     </form>
