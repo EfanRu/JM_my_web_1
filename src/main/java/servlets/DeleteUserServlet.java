@@ -16,7 +16,7 @@ public class DeleteUserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/EditUsers.jsp").forward(req, resp);
     }
 
     @Override
@@ -28,6 +28,6 @@ public class DeleteUserServlet extends HttpServlet {
         } else {
             resp.setStatus(403);
         }
-        doGet(req, resp);
+        resp.sendRedirect("http://localhost:8080/all");
     }
 }

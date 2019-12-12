@@ -32,6 +32,6 @@ public class EditUserServlet extends HttpServlet {
         } else {
             resp.setStatus(403);
         }
-        doGet(req, resp);
+        resp.sendRedirect("http://localhost:8080/all");
     }
 }
